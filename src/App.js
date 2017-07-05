@@ -16,6 +16,7 @@ class App extends Component {
 		}
 		this.feedSpecies = this.feedSpecies.bind(this)
 		this.handleBindChange = this.handleBindChange.bind(this)
+		this.addSpecies = this.addSpecies.bind(this)
 	}
 
 	//handleValueChange(value) {
@@ -31,9 +32,11 @@ class App extends Component {
 	}
 
 	handleBindChange(e){
-	  this.setState({newSpecies: e.value.target})
+	  this.setState({newSpecies: e.target.value})
 	}
+
 	addSpecies() {
+		console.log("here")
 		const newSpecies = {
 			name: this.state.newSpecies,
 			status: 'Hungry'
@@ -63,7 +66,7 @@ class App extends Component {
 					<input onChange={this.handleBindChange} value={this.state.newSpecies}/>
 					{/*<input onChange={e => this.handleValueChange(e.target.value)} value={this.state.newSpecies}/>*/}
 
-					<button onClick={() => this.addSpecies()}>Add Species</button>
+					<button onClick={() => {this.addSpecies}}>Add Species</button>
 				</div>
 
 			</div>
